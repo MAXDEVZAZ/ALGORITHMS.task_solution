@@ -1,4 +1,4 @@
-package the_route_of_the_maximum_cost
+package medium.the_route_of_the_maximum_cost
 
 fun choiceDirection(input: MutableList<MutableList<Int>>) {
     val resultDirectionReverse = mutableListOf<Char>()

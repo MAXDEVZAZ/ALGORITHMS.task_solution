@@ -1,11 +1,6 @@
 package medium.the_cheapest_way
 
-fun main() {
-    //theCheapestWayAlgorithm(input())
-    test()
-}
-
-fun theCheapestWayAlgorithm(input: MutableList<MutableList<Int>>) {
+fun theCheapestWayAlgorithm(input: MutableList<MutableList<Int>>) { // по факту, алгоритм дейкстры
     val result = mutableListOf<MutableList<Int>>()
     for (i in 0..<input.size) {
         result.add(mutableListOf())
@@ -43,6 +38,11 @@ fun input(): MutableList<MutableList<Int>> {
         mapList.add(readln().split(" ").map { it.toInt() }.toMutableList())
     }
     return mapList
+}
+
+fun main() {
+    theCheapestWayAlgorithm(input())
+    //test()
 }
 
 fun test() {

@@ -2,16 +2,17 @@ package yandex_5.contest_3
 
 fun main() {
     val inputListOne = readln().split(" ")
-    val inputListTwo = readln().split(" ").toMutableList()
-    val resultList = mutableListOf<String>()
-
-    for (i in 0..<inputListTwo.size) {
-        resultList.add(i, inputListTwo[i])
+    val inputListTwo = readln().split(" ")
+    for (i in inputListTwo.indices) {
+        var result = inputListTwo[i]
         for (element in inputListOne) {
-            if (inputListTwo[i].startsWith(element) && resultList[i].length > element.length) {
-                resultList[i] = element
+            if (inputListTwo[i].startsWith(element) && result.length > element.length) {
+                result = element
             }
         }
+        print(result)
+        if (i != inputListTwo.size - 1) {
+            print(" ")
+        }
     }
-    print(resultList.joinToString(" "))
 }

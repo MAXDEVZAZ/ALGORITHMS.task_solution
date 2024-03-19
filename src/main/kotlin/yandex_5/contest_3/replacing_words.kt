@@ -1,18 +1,30 @@
 package yandex_5.contest_3
 
 fun main() {
-    val inputListOne = readln().split(" ")
-    val inputListTwo = readln().split(" ")
-    for (i in inputListTwo.indices) {
-        var result = inputListTwo[i]
-        for (element in inputListOne) {
-            if (inputListTwo[i].startsWith(element) && result.length > element.length) {
-                result = element
+    val words1 = readln().split(" ")
+    val dict = mutableMapOf<Int, MutableSet<String>>()
+    val result = mutableListOf<String>()
+
+    for (word in words1) {
+        dict.computeIfAbsent(word.length) { mutableSetOf() }.add(word)
+    }
+
+    val words2 = readln().split(" ")
+
+    for (word in words2) {
+        var found = false
+        for (i in 1 until word.length) {
+            val str = word.substring(0, i)
+            if (dict[i]?.contains(str) == true) {
+                result.add(str)
+                found = true
+                break
             }
         }
-        print(result)
-        if (i != inputListTwo.size - 1) {
-            print(" ")
+        if (!found) {
+            result.add(word)
         }
     }
+
+    println(result.joinToString(" "))
 }
